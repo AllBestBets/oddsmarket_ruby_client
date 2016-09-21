@@ -9,20 +9,20 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'oddsmarket_client'
+gem 'oddsmarket_client', github: 'AllBestBets/oddsmarket_ruby_client'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install oddsmarket_client
-
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+client = OddsmarketClient::PrematchOdds.new("YOUR_API_KEY")
+json_body = client.odds( {bookmakerIds: [1] }).body
+```
+More examples in: spec folder
 
 ## Development
 
