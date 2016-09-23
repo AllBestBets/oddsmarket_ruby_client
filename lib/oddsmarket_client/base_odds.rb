@@ -29,7 +29,7 @@ module OddsmarketClient
       end
       
       @last_response = HtppClient::call(url(method) % args[:bookmakerIds].join(','), permit_args(args), method)
-      @last_updated_at = new_updated_at if [200, 304].include?(@last_response.code)
+      @last_updated_at = new_updated_at if 200 == @last_response.code
       @last_response
     end
     
