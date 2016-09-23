@@ -16,7 +16,7 @@ module OddsmarketClient
         clean_args = args.select { |k| k != :http_headers and k != :format }
 
         if method == :get
-          request = HTTPI::Request.new("#{url}?#{clean_args.map{|k,v| "#{k}=#{v}"}.join('&')}")
+          request = HTTPI::Request.new("#{url}?#{clean_args.map{|k,v| "#{k}=#{v.is_a?(Array) ? v.join(',') : v}"}.join('&')}")
           request.headers = args[:http_headers]
           HTTPI.get(request)
         else
