@@ -13,6 +13,7 @@ module OddsmarketClient
         args[:http_headers] ||= {}
         args[:http_headers]['Content-Type'] ||= "text/#{args[:format].to_s}"
         args[:http_headers]['Accept'] ||= "application/#{args[:format].to_s}"
+        args[:http_headers]['Accept-Encoding'] ||= 'gzip'
         clean_args = args.select { |k| k != :http_headers and k != :format }
 
         if method == :get
